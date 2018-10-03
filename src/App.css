@@ -1,32 +1,33 @@
+html {
+        background-color: grey;
+}
+
 .App {
-  text-align: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.playField {
+    margin: 50px;
+    width: 90%;
+    height : 600px;
+    background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#creature_1 {
+    position: relative;
+    left: 0px;
+    top: 250px;
+    animation: creature_travel 20s linear 2s 1;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes creature_travel {
+    0% {left: 0px; top: 250px;}
+    20% {left: 30px; top: 450px;}
+    40% {left: 170px; top: 100px;}
+    60% {left: 450px; top: 80px;}
+    80% {left: 600px; top: 450px;}
+    100% {left: 900px; top: 250px;}
+    
 }
