@@ -9,6 +9,7 @@ class Creature extends Component {
     
     state = {
         life: 100,
+        displayed : true,
     }
     
     onClick = event => {
@@ -30,14 +31,17 @@ class Creature extends Component {
         
     }
     
+    componentDidMount(){
+        this.refs.creature.addEventListener('animationend', () => this.setState({displayed: false}));
+    }
         
     
     render() {
         return (
             
-            <div className= "creature" id={this.props.id} onClick={this.onClick} >
-                <div className= "creatureLifeBand" style = {this.getLifeBandColor()}></div>
-                <div className= "creatureBody"></div>
+            <div className= "creature" id={this.props.id} ref="creature" onClick={this.onClick} style ={{animationName : this.props.animationName, animationDuration: `${20/this.props.speed}s`, animationTimingFunction: "linear", animationDelay: '1s', animationIterationCount: 1, dispay : this.props.display}}>
+                {this.state.displayed && <div className= "creatureLifeBand" style = {this.getLifeBandColor()}></div>}
+                {this.state.displayed && <div className= "creatureBody"></div>}
             </div>
         
         )
@@ -46,6 +50,8 @@ class Creature extends Component {
 
 Creature.propTypes = {
     id : PropTypes.string.isRequired,
+    animationName : PropTypes.string.isRequired,
+    speed : PropTypes.number.isRequired,
 }
 
 export default Creature
