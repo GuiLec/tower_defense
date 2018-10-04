@@ -8,18 +8,36 @@ html {
     justify-content: center;
 }
 
+#gameMonitoringButton{
+    position: absolute;
+    left: 5px;
+    top : 5px;
+}
+
+#infoField {
+    text-align:left;
+    position: absolute;
+    right: 5px;
+}
+
+#canvas {
+    height: 100%;
+    width: 100%;
+}
+
 .playField {
+    position: relative;
     margin: 50px;
     width: 900px;
     height : 600px;
     background-color: white;
 }
 
-#creature_1 {
-    position: relative;
+.creature {
+    position: absolute;
     left: 0px;
     top: 250px;
-    animation: creature_travel 20s linear 2s 1;
+
 }
 
 @keyframes creature_travel {
